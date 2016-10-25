@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dillon Lundell",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "d3": "^4.2.8",
+    "express": "^4.14.0"
+  }
 }
