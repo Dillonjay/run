@@ -1,6 +1,7 @@
 angular.module('run', [
   'game',
   'landing',
+  'services',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
