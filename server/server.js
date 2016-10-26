@@ -2,8 +2,9 @@ var express = require('express');
 var path = require('path');
 
 var app = express();
+// Statically serve the entire client folder.
 app.use(express.static(__dirname + '/../client'));
-app.use(express.static(__dirname + '/../bower_components'));
+// Initially send the index.html file. 
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 })

@@ -7,7 +7,7 @@ angular.module('Run', ['ngRoute'])
     })
     .when('/game', {
       templateUrl: 'app/game/game.html',
-      controller: 'GameController'
+      // controller: 'GameController'
     })
     .otherwise({
       redirectTo: '/'
