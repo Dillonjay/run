@@ -1,5 +1,8 @@
-
-angular.module('Run', ['ngRoute'])
+angular.module('Run', [
+  'Run.landing',
+  'Run.game',
+  'ngRoute'
+  ])
 .config(function($routeProvider) {
   $routeProvider 
     .when('/', {
@@ -7,7 +10,7 @@ angular.module('Run', ['ngRoute'])
     })
     .when('/game', {
       templateUrl: 'app/game/game.html',
-      // controller: 'GameController'
+      controller: 'GameController'
     })
     .otherwise({
       redirectTo: '/'
