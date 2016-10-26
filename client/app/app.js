@@ -1,12 +1,13 @@
 angular.module('Run', [
-  'Run.landing',
-  'Run.game',
+  'run.game',
+  'run.landing',
   'ngRoute'
   ])
 .config(function($routeProvider) {
   $routeProvider 
     .when('/', {
-      templateUrl: 'app/landing/landing.html'
+      templateUrl: 'app/landing/landing.html',
+      controller: 'LandingController'
     })
     .when('/game', {
       templateUrl: 'app/game/game.html',
