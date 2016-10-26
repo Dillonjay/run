@@ -1,21 +1,15 @@
-angular.module('run', [
-  'game',
-  'landing',
-  'services',
-  'ngRoute'
-])
-.config(function ($routeProvider, $httpProvider) {
-  $routeProvider
+
+angular.module('Run', ['ngRoute'])
+.config(function($routeProvider) {
+  $routeProvider 
+    .when('/', {
+      templateUrl: 'app/landing/landing.html'
+    })
     .when('/game', {
       templateUrl: 'app/game/game.html',
       controller: 'GameController'
-    })
-    .when('/landing', {
-      templateUrl: 'app/landing/landing.html',
-      controller: 'LandingController'
     })
     .otherwise({
       redirectTo: '/'
     });
 })
-

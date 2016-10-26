@@ -1,20 +1,22 @@
+  
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app='Run'>
 <head>
 	<meta charset="UTF-8">
 	<title>Run</title>
 </head>
 <body>
 	<h1>HELLOOOOo</h1>
-	<a href="#/landing">Click me bruh</a>
+	<a href="#game">Game</a>
  	<!-- the ng-view directive is where templates will be loaded -->
 	<div ng-view></div>
 
 	<!-- Bring in angular and angular-route from bower_components -->
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-route/angular-route.js"></script>
 
 	<!-- Bring in app.js to allow showing different views based on route -->
+	<script src="./app/landing/landing.js"></script>
 	<script src="./app/app.js"></script>
 </body>
 </html>
