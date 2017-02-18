@@ -8,6 +8,10 @@ app.use(express.static(__dirname + '/../client'));
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 })
+app.get('/search', function(req,res){
+	console.log('req', req.body);
+	res.send(200)
+})
 
 app.listen(3000, function(){
 	console.log('listening at localhost:3000')	

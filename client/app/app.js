@@ -1,4 +1,5 @@
 angular.module('search', [
+  'search.services',
   'search.about',
   'search.data',
   'ngRoute'
