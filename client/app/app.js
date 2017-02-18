@@ -1,17 +1,17 @@
-angular.module('Run', [
-  'run.game',
-  'run.landing',
+angular.module('search', [
+  'search.about',
+  'search.data',
   'ngRoute'
   ])
 .config(function($routeProvider) {
   $routeProvider 
     .when('/', {
-      templateUrl: 'app/landing/landing.html',
-      controller: 'LandingController'
+      templateUrl: 'app/about/about.html',
+      controller: 'AboutController'
     })
-    .when('/game', {
-      templateUrl: 'app/game/game.html',
-      controller: 'GameController'
+    .when('/data', {
+      templateUrl: 'app/data/data.html',
+      controller: 'DataController'
     })
     .otherwise({
       redirectTo: '/'
