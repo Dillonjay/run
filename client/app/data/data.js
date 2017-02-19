@@ -10,8 +10,8 @@ angular.module('search.data', [])
             chart: {
                 type: 'multiBarHorizontalChart',
                 height: 600,
-    			width:  1000,
-    			margin: 400,
+    			width:  1300,
+    			margin: {"left":220},
                 x: function(d){return d.label;},
                 y: function(d){return d.value;},
                 //yErr: function(d){ return [-Math.abs(d.value * Math.random() * 0.3), Math.abs(d.value * Math.random() * 0.3)] },
@@ -22,7 +22,7 @@ angular.module('search.data', [])
                     showMaxMin: false
                 },
                 yAxis: {
-                    axisLabel: 'Values',
+                    axisLabel: 'Reviews/Raiting',
                     tickFormat: function(d){
                         return d3.format(',.2f')(d);
                     }
