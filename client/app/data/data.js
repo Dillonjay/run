@@ -12,7 +12,7 @@ angular.module('search.data', [])
                 height: 600,
     			width:  1300,
     			margin: {"left":220, "bottom":150},
-    			groupSpacing: 0.3,
+    			groupSpacing: 0,
                 x: function(d){return d.label;},
                 y: function(d){return d.value;},
                 showControls: true,
@@ -105,12 +105,12 @@ angular.module('search.data', [])
              	$scope.data = [
             		{
                 		"key": "Number Of Reviews",
-                		"color": "#d62728",
+                		"color": "#bd1f1f",
                 		"values": reviews 
             		},
             		{
                 		"key": "Rating",
-                		"color": "#1f77b4",
+                		"color": "#f58051",
                 		"values": ratings
             		}
         		]
