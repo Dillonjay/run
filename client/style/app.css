@@ -1,12 +1,15 @@
-
+body {
+  text-align:center;
+}
 button[type='submit'] {
   font-size: 15px;
   padding: 10px;
+  border-radius:5px;
 }
     
 .input-dropdown {
   margin: 0 30px 0 0;
-  width: 350px;
+  width: 10rem;
   display: inline-block;
   position: relative;
 }
@@ -44,4 +47,13 @@ button[type='submit'] {
 
 .input-dropdown ul > li.active {
   background: #608AEB;
+}
+
+.shop {
+  border:black solid 4px;
+  text-align:center;
+}
+.spa {
+  display:inline-block;
+  float:right;
 }

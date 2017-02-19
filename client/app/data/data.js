@@ -36,7 +36,8 @@ angular.module('search.data', [])
             			$scope.city.label = e.data.label
                 		Search.getShopData($scope.city)
                 		.then(function(data) {
-                			console.log(data)
+                			$scope.coffeeShop = data.data.businesses[0];
+                			console.log($scope.coffeeShop)
                 		})
                 		.catch(function(err) {
                 			console.log(err)
