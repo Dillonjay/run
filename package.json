@@ -1,11 +1,11 @@
 {
-  "name": "run",
+  "name": "Coffee_Choice",
   "version": "1.0.0",
-  "description": "A game for halloween",
+  "description": "A quick way to compare local coffee shops.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "node server/server.js"
   },
   "author": "Dillon Lundell",
   "license": "ISC",
