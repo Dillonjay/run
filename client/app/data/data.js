@@ -1,19 +1,41 @@
 angular.module('search.data', [])
 
 .controller('InputDropdownController', [
-      '$scope',
-      '$q',
-      'Search',
-      function($scope, $q, Search) {
+    '$scope',
+    '$q',
+    'Search',
+    function($scope, $q, Search) {
         var self = this;
-      
+        $scope.options = {
+            chart: {
+                type: 'multiBarHorizontalChart',
+                height: 600,
+    			width:  1000,
+    			margin: 400,
+                x: function(d){return d.label;},
+                y: function(d){return d.value;},
+                //yErr: function(d){ return [-Math.abs(d.value * Math.random() * 0.3), Math.abs(d.value * Math.random() * 0.3)] },
+                showControls: true,
+                showValues: true,
+                duration: 500,
+                xAxis: {
+                    showMaxMin: false
+                },
+                yAxis: {
+                    axisLabel: 'Values',
+                    tickFormat: function(d){
+                        return d3.format(',.2f')(d);
+                    }
+                }
+            }
+        };
         self.city = null;
         // Pass strings to the dropdown for simple usage
         self.defaultDropdownStrings = [
-          'Austin,TX',
-          'Dallas,TX',
-          'Missoula,MT',
-          'Portland,OR'
+        	'Austin,TX',
+        	'Dallas,TX',
+        	'Missoula,MT',
+        	'Portland,OR'
         ];
         // Must have property readableName to be desplayed properly.
         self.defaultDropdownObjects = [
@@ -51,16 +73,30 @@ angular.module('search.data', [])
           if ($scope.formObjects.$valid) {
              Search.search(self.city)
              .then(function(data) {
-             	console.log(data)
-             	var important = data.data.businesses.map(function(shop){
+             	var reviews = data.data.businesses.map(function(shop){
              		return { 
-             			name: shop.name,
-             			rating: shop.rating,
-             			reviews: shop.review_count
+             			label: shop.name,
+             			value: shop.review_count
              		}
              	})
-             	$scope.shops = important;
-             	console.log(important)
+             	var ratings = data.data.businesses.map(function(shop){
+             		return { 
+             			label: shop.name,
+             			value: shop.rating,
+             		}
+             	})
+             	$scope.data = [
+            		{
+                		"key": "Number Of Reviews",
+                		"color": "#d62728",
+                		"values": reviews 
+            		},
+            		{
+                		"key": "Rating",
+                		"color": "#1f77b4",
+                		"values": ratings
+            		}
+        		]
              })
              .catch(function(err){
              	console.log('ero', err)
@@ -68,5 +104,5 @@ angular.module('search.data', [])
           }
         };
 
-      }
-    ]);
+	}
+]);

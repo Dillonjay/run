@@ -3,6 +3,7 @@ angular.module('search', [
   'search.about',
   'search.data',
   'inputDropdown',
+  'nvd3',
   'ngRoute'
   ])
 .config(function($routeProvider) {

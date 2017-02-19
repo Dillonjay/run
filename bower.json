@@ -16,6 +16,6 @@
     "angular-route": "~1.3.16",
     "angular-mocks": "~1.3.16",
     "angular-input-dropdown": "^1.1.2",
-    "d3": "^4.5.1"
+    "angular-nvd3": "^1.0.9"
   }
 }
