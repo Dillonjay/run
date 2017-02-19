@@ -2,6 +2,7 @@ angular.module('search', [
   'search.services',
   'search.about',
   'search.data',
+  'inputDropdown',
   'ngRoute'
   ])
 .config(function($routeProvider) {
@@ -12,7 +13,7 @@ angular.module('search', [
     })
     .when('/data', {
       templateUrl: 'app/data/data.html',
-      controller: 'DataController'
+      controller: 'InputDropdownController'
     })
     .otherwise({
       redirectTo: '/'
