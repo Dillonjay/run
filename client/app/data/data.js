@@ -18,20 +18,16 @@ angular.module('search.data', [])
           'Missoula,MT',
           'Portland,OR'
         ];
-
-        // Use objects in the dropdown list if more data than just a string is needed.
-        // Every object needs to have a property 'readableName', this is what will be displayed in the dropdown.
+        // Must have property readableName to be desplayed properly.
         self.defaultDropdownObjects = [
 	        {
 	          readableName: 'Austin,TX'
 	        }, 
 	        {
-	          readableName: 'Dallas,TX'
-	       
+	          readableName: 'Dallas,TX'	       
 	        }, 
 	        {
-	          readableName: 'Missoula,MT'
-	  
+	          readableName: 'Missoula,MT'	  
 	        }, 
 	        {
 	          readableName: 'Portland,OR'

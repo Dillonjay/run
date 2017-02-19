@@ -17,8 +17,7 @@ module.exports = function (app, express) {
 
   app.post('/search', function(req,res) {
     console.log('req', req.body);
-    console.log(yelp( {location: req.body.city} ))
-    return request(yelp({location: req.body.city}), function(error, response, body) {
+    return request(yelp({location: req.body.readableName}), function(error, response, body) {
       if (!error && response.statusCode == 200) {
         res.send(body).status(200) 
       } else {
