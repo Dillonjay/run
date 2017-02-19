@@ -1,5 +1,7 @@
 <div>
-	<a href="#about">About</a>
+	<div class="header">
+		<a class="nav-link" href="#about">About</a>
+	</div>
 	<div class="content" ng-controller="InputDropdownController as dropdownCtrl">
 		<form name="formObjects" ng-submit="dropdownCtrl.submitCity()" novalidate="">
 	      <input-dropdown input-placeholder="City" input-name="city" input-required="true" selected-item="city" default-dropdown-items="dropdownCtrl.defaultDropdownObjects" filter-list-method="dropdownCtrl.filterCities(userInput)"

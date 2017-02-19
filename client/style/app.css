@@ -1,10 +1,44 @@
 body {
   text-align:center;
 }
+
+.head {
+  color:white;
+  background-color:#d32323;
+  height: 5rem;
+  padding-top: 2rem;
+  font-size:2rem;
+}
+
+.header {
+  height: 3rem;
+  background-color:#bd1f1f;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size:2rem;
+  float:right;
+  margin-right:3rem;
+  margin-top:.5rem;
+}
+
+.nav-link:hover {
+  color:black;
+  cursor:pointer;
+
+}
+
+h1 {
+  margin:0;
+}
 button[type='submit'] {
   font-size: 15px;
   padding: 10px;
   border-radius:5px;
+  background-color:#d50505;
+  color:white;
 }
     
 .input-dropdown {
@@ -46,7 +80,7 @@ button[type='submit'] {
 }
 
 .input-dropdown ul > li.active {
-  background: #608AEB;
+  background: #d50505;
 }
 
 .shop {
