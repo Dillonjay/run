@@ -4,9 +4,9 @@
   "description": "A quick way to compare local coffee shops.",
   "main": "app.js",
   "scripts": {
-    "postinstall": "bower install",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js"
+    "postinstall": "bower cache clean && bower install"
   },
   "author": "Dillon Lundell",
   "license": "ISC",
