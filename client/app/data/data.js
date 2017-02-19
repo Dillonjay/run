@@ -92,6 +92,8 @@ angular.module('search.data', [])
           if ($scope.formObjects.$valid) {
              Search.search($scope.city)
              .then(function(data) {
+             	// Clear coffee shop data if displayed
+             	$scope.coffeeShop = null;
              	console.log(data)
              	var reviews = data.data.businesses.map(function(shop){
              		return { 

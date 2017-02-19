@@ -36,9 +36,14 @@ h1 {
 button[type='submit'] {
   font-size: 15px;
   padding: 10px;
+  height:2.2rem;
   border-radius:5px;
   background-color:#d50505;
   color:white;
+}
+button[type='submit']:hover {
+  cursor:pointer;
+  background-color:#d32323
 }
     
 .input-dropdown {
@@ -80,7 +85,8 @@ button[type='submit'] {
 }
 
 .input-dropdown ul > li.active {
-  background: #d50505;
+  background: #d32323;
+  color:white;
 }
 
 .shop {
@@ -90,4 +96,9 @@ button[type='submit'] {
 .spa {
   display:inline-block;
   float:right;
+}
+
+.footer {
+  background-color:#d32323;
+  height: 5rem;
 }
