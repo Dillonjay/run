@@ -33,6 +33,9 @@ body {
 h1 {
   margin:0;
 }
+.content {
+  margin-bottom:3rem;
+}
 button[type='submit'] {
   font-size: 15px;
   padding: 10px;
@@ -43,7 +46,7 @@ button[type='submit'] {
 }
 button[type='submit']:hover {
   cursor:pointer;
-  background-color:#d32323
+  background-color:#d32323;
 }
     
 .input-dropdown {
@@ -89,16 +92,31 @@ button[type='submit']:hover {
   color:white;
 }
 
-.shop {
-  border:black solid 4px;
-  text-align:center;
+.chart {
+
 }
-.spa {
-  display:inline-block;
+.shop {
+  margin-top:2rem;
+  border-bottom:#d32323 solid 1px;
+  text-align:center;
+  margin:2rem 10rem 0 10rem;
+}
+.shop img {
   float:right;
+}
+.shop h1 {
+  display:inline;
+  margin-right:-9rem;
+}
+.shop h4 {
+  margin:.2rem;
 }
 
 .footer {
   background-color:#d32323;
   height: 5rem;
+  position:fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

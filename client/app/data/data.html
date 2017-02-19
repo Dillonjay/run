@@ -10,16 +10,16 @@
 	    </form>
 		<div ng-if="coffeeShop" class="shop">
 			<h1>{{coffeeShop.name}}</h1>
-			<img ng-src="{{coffeeShop.image_url}}" />
-			<span class="spa" ng-if="!is_closed">They are open!</span>
-			<span class="spa" ng-if="is_closed">They are currently closed.</span>
-			<br>
 			<img ng-src="{{coffeeShop.rating_img_url_large}}" />
-			<span>Phone: {{coffeeShop.display_phone}}</span>
-			<h4>Check em out on <a ng-href="{{coffeeShop.url}}">yelp</a> !</h4>
+			<h4 class="open" ng-if="!is_closed">They are open!</h4>
+			<h4 ng-if="is_closed">They are currently closed.</h4>
+			<h4 >Phone: {{coffeeShop.display_phone}}</h4>
+			<h4>Check em out on <a target="_blank" ng-href="{{coffeeShop.url}}">yelp</a> !</h4>
 		</div>
-	  	<h4 ng-if="data">{{city.readableName}}</h4>
-		<nvd3 options="options" data="data"></nvd3>
+		<div class="chart">
+	  		<h2 ng-if="data">{{city.readableName}}</h2>
+			<nvd3 options="options" data="data"></nvd3>
+		</div>
 		<div class="footer"></div>
 	</div>
 </div>

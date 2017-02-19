@@ -11,7 +11,7 @@ angular.module('search.data', [])
                 type: 'multiBarHorizontalChart',
                 height: 600,
     			width:  1300,
-    			margin: {"left":220},
+    			margin: {"left":220, "bottom":150},
     			groupSpacing: 0.3,
                 x: function(d){return d.label;},
                 y: function(d){return d.value;},
@@ -27,17 +27,12 @@ angular.module('search.data', [])
                         return d3.format(',.2f')(d);
                     }
                 },
-        		title: {
-        			enable: true,
-        			text: 'helloooo'
-        		},
                 callback: function(chart) {
             		chart.multibar.dispatch.on('elementClick', function(e){
             			$scope.city.label = e.data.label
                 		Search.getShopData($scope.city)
                 		.then(function(data) {
                 			$scope.coffeeShop = data.data.businesses[0];
-                			console.log($scope.coffeeShop)
                 		})
                 		.catch(function(err) {
                 			console.log(err)
