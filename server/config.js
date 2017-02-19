@@ -30,7 +30,7 @@ module.exports = function (app, express) {
 
    app.post('/getShop', function(req,res) {
     console.log('req', req.body);
-    return request(yelp({term: req.body.notsure,location: req.body.readableName,limit: 1 }), function(error, response, body) {
+    return request(yelp({term: req.body.label,location: req.body.readableName,limit: 1 }), function(error, response, body) {
       if (!error && response.statusCode == 200) {
         console.log(body)
         res.send(body).status(200) 

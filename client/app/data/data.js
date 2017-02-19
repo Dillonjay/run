@@ -33,12 +33,21 @@ angular.module('search.data', [])
         		},
                 callback: function(chart) {
             		chart.multibar.dispatch.on('elementClick', function(e){
-                		console.log('element', e, 'scope.city', self.city );                             
+            			$scope.city.label = e.data.label
+                		Search.getShopData($scope.city)
+                		.then(function(data) {
+                			console.log(data)
+                		})
+                		.catch(function(err) {
+                			console.log(err)
+                		})
+
             		});
         		}
             }
         };
-        self.city = null;
+        $scope.city = null;
+        $scope.coffeeShop = null;
         // Pass strings to the dropdown for simple usage
         self.defaultDropdownStrings = [
         	'Austin,TX',
@@ -80,7 +89,7 @@ angular.module('search.data', [])
 
         self.submitCity = function() {
           if ($scope.formObjects.$valid) {
-             Search.search(self.city)
+             Search.search($scope.city)
              .then(function(data) {
              	console.log(data)
              	var reviews = data.data.businesses.map(function(shop){
@@ -109,7 +118,7 @@ angular.module('search.data', [])
         		]
              })
              .catch(function(err){
-             	console.log('ero', err)
+             	console.log('err', err)
              })
           }
         };
