@@ -1,13 +1,13 @@
 <div>
+	<a href="#about">About</a>
 	<div class="content" ng-controller="InputDropdownController as dropdownCtrl">
 		<form name="formObjects" ng-submit="dropdownCtrl.submitCity()" novalidate="">
 	      <input-dropdown input-placeholder="City" input-name="city" input-required="true" selected-item="dropdownCtrl.city" default-dropdown-items="dropdownCtrl.defaultDropdownObjects" filter-list-method="dropdownCtrl.filterCities(userInput)"
 	      ></input-dropdown>
 	      <button type="submit" ng-disabled="demoFormObjects.$invalid">Submit</button>
 	    </form>
-	</div>
-	<div>
 		<h4>Display data here</h4>
-	</div>	
+		<p ng-repeat="shop in shops">{{shop.name}}</p>
+	</div>
 </div>
 

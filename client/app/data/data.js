@@ -51,7 +51,16 @@ angular.module('search.data', [])
           if ($scope.formObjects.$valid) {
              Search.search(self.city)
              .then(function(data) {
-             	console.log('success', data)
+             	console.log(data)
+             	var important = data.data.businesses.map(function(shop){
+             		return { 
+             			name: shop.name,
+             			rating: shop.rating,
+             			reviews: shop.review_count
+             		}
+             	})
+             	$scope.shops = important;
+             	console.log(important)
              })
              .catch(function(err){
              	console.log('ero', err)
