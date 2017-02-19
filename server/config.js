@@ -6,8 +6,8 @@ var yelp = require('./yelp.js').yelp;
 module.exports = function (app, express) {
 
   // Statically serve the entire client folder.
-  app.use(express.static(path.join(__dirname + '/../client')));
-
+  app.use(express.static(path.join(__dirname, 'client')));
+  app.use('/bower_components', express.static(path.join(__dirname,'/bower_components')))
   app.use(bodyParser.json());
 
   // Initially send the index.html file. 
