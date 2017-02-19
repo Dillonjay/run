@@ -40,8 +40,8 @@ angular.module('search.data', [])
                 		})
 
             		});
-        		};
-            };
+        		}
+            }
         };
         // City will contain the selected input city.
         $scope.city = null;
@@ -126,5 +126,5 @@ angular.module('search.data', [])
              	})
           	}
         };
-	};
+	}
 ]);

@@ -1,6 +1,5 @@
 angular.module('search', [
   'search.services',
-  'search.about',
   'search.data',
   'inputDropdown',
   'nvd3',
@@ -9,8 +8,7 @@ angular.module('search', [
 .config(function($routeProvider) {
   $routeProvider 
     .when('/', {
-      templateUrl: 'app/about/about.html',
-      controller: 'AboutController'
+      templateUrl: 'app/about/about.html'
     })
     .when('/data', {
       templateUrl: 'app/data/data.html',
