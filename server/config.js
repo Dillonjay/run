@@ -15,27 +15,22 @@ module.exports = function (app, express) {
     res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
   });
 
+  // User chooses a city.
   app.post('/search', function(req,res) {
-    console.log('req', req.body);
     return request(yelp({term: 'coffee', location: req.body.readableName}), function(error, response, body) {
       if (!error && response.statusCode == 200) {
-        console.log(body)
         res.send(body).status(200) 
       } else {
-        console.log('failed')
         res.sendStatus(400)
       };
     });
   });
-
-   app.post('/getShop', function(req,res) {
-    console.log('req', req.body);
+  // User chooses a coffee shop.
+  app.post('/getShop', function(req,res) {
     return request(yelp({term: req.body.label,location: req.body.readableName,limit: 1 }), function(error, response, body) {
       if (!error && response.statusCode == 200) {
-        console.log(body)
         res.send(body).status(200) 
       } else {
-        console.log('failed')
         res.sendStatus(400)
       };
     });

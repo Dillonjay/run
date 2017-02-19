@@ -6,6 +6,7 @@ angular.module('search.data', [])
     'Search',
     function($scope, $q, Search) {
         var self = this;
+        // Set options for the line bar.
         $scope.options = {
             chart: {
                 type: 'multiBarHorizontalChart',
@@ -39,10 +40,12 @@ angular.module('search.data', [])
                 		})
 
             		});
-        		}
-            }
+        		};
+            };
         };
+        // City will contain the selected input city.
         $scope.city = null;
+        // Coffee shop data.
         $scope.coffeeShop = null;
         // Pass strings to the dropdown for simple usage
         self.defaultDropdownStrings = [
@@ -70,11 +73,10 @@ angular.module('search.data', [])
 	        }
 	    ];
 
-
+	    // For filtering dropdown objects on user input. 
         self.filterCities = function(userInput) {
         	var filter = $q.defer();
         	var input = userInput.toLowerCase();
-
           	var filteredArray = self.defaultDropdownObjects.filter(function(city) {
             var match = city.readableName.toLowerCase().indexOf(input) === 0;
             return match;
@@ -83,43 +85,46 @@ angular.module('search.data', [])
           return filter.promise;
         };
 
+        // User clicks go button and we send off city to server.
         self.submitCity = function() {
-          if ($scope.formObjects.$valid) {
-             Search.search($scope.city)
-             .then(function(data) {
-             	// Clear coffee shop data if displayed
-             	$scope.coffeeShop = null;
-             	console.log(data)
-             	var reviews = data.data.businesses.map(function(shop){
-             		return { 
-             			label: shop.name,
-             			value: shop.review_count
-             		}
-             	})
-             	var ratings = data.data.businesses.map(function(shop){
-             		return { 
-             			label: shop.name,
-             			value: shop.rating
-             		}
-             	})
-             	$scope.data = [
-            		{
-                		"key": "Number Of Reviews",
-                		"color": "#bd1f1f",
-                		"values": reviews 
-            		},
-            		{
-                		"key": "Rating",
-                		"color": "#f58051",
-                		"values": ratings
-            		}
-        		]
-             })
-             .catch(function(err){
-             	console.log('err', err)
-             })
-          }
-        };
 
-	}
+          	if ($scope.formObjects.$valid) {
+             	Search.search($scope.city)
+             	.then(function(data) {
+             		// Clear coffee shop data if displayed.
+             		$scope.coffeeShop = null;
+             		// Loop through data and return only relevant data. 
+             		var reviews = data.data.businesses.map(function(shop) {
+             			return { 
+             				label: shop.name,
+             				value: shop.review_count
+             			};
+             		});
+
+             		var ratings = data.data.businesses.map(function(shop) {
+             			return { 
+             				label: shop.name,
+             				value: shop.rating
+             			};
+             		});
+             		// set data for for line bar.
+             		$scope.data = [
+            			{
+                			"key": "Number Of Reviews",
+                			"color": "#bd1f1f",
+                			"values": reviews 
+            			},
+            			{
+                			"key": "Rating",
+                			"color": "#f58051",
+                			"values": ratings
+            			}
+        			];
+             	})
+             	.catch(function(err) {
+             		console.log('err', err)
+             	})
+          	}
+        };
+	};
 ]);

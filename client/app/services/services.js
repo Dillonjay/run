@@ -1,9 +1,8 @@
 angular.module('search.services', [])
 
 .factory('Search', function ($http) {
-
+  // Hit server with selected city.
   var search = function(term) {
-    console.log("term to send", term)
     return $http({
       method: 'POST',
       url: '/search',
@@ -14,6 +13,7 @@ angular.module('search.services', [])
     });
   };
 
+  // Hit server with selected shop.
   var getShopData = function(info) {
     return $http({
       method: 'POST',
@@ -23,7 +23,7 @@ angular.module('search.services', [])
     .then(function(resp) {
       return resp
     })
-  }
+  };
 
   return {
     search: search,

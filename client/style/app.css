@@ -1,6 +1,6 @@
 body {
   text-align:center;
-}
+};
 
 .head {
   color:white;
@@ -9,12 +9,12 @@ body {
   height: 5rem;
   padding-top: 2rem;
   font-size:2rem;
-}
+};
 
 .header {
   height: 2rem;
   background-color:#bd1f1f;
-}
+};
 
 .nav-link {
   color: white;
@@ -23,22 +23,22 @@ body {
   float:right;
   margin-right:3rem;
   margin-top:.5rem;
-}
+};
 
 .nav-link:hover {
   text-shadow: 4px 4px black;
   cursor:pointer;
-
-}
+};
 
 h1 {
   margin:0;
-}
+};
 
 .content {
   margin-bottom:3rem;
   margin-top:1rem;
-}
+};
+
 button[type='submit'] {
   font-size: 15px;
   padding: 10px;
@@ -46,32 +46,33 @@ button[type='submit'] {
   border-radius:5px;
   background-color:#d50505;
   color:white;
-}
+};
+
 button[type='submit']:hover {
   cursor:pointer;
   background-color:#d32323;
-}
+};
     
 .input-dropdown {
   margin: 0 30px 0 0;
   width: 10rem;
   display: inline-block;
   position: relative;
-}
-    
+};
+
 .input-dropdown input[type='text'] {
   font-size: 15px;
   padding: 5px;
-}
+};
     
 .input-dropdown ul > li {
   transition: background .15s;
-}
+};
 
 .input-dropdown input[type='text'] {
   box-sizing: border-box;
   width: 100%;
-}
+};
 
 .input-dropdown ul {
   background: #fff;
@@ -83,37 +84,37 @@ button[type='submit']:hover {
   position: absolute;
   width: 100%;
   z-index: 1000;
-}
+};
 
 .input-dropdown ul > li {
   cursor: pointer;
   padding: 10px;
-}
+};
 
 .input-dropdown ul > li.active {
   background: #d32323;
   color:white;
-}
+};
 
-.chart {
-
-}
 .shop {
   margin-top:2rem;
   border-bottom:#d32323 solid 1px;
   text-align:center;
   margin:2rem 10rem 0 10rem;
-}
+};
+
 .shop img {
   float:right;
-}
+};
+
 .shop h1 {
   display:inline;
   margin-right:-9rem;
-}
+};
+
 .shop h4 {
   margin:.2rem;
-}
+};
 
 .footer {
   background-color:#d32323;
@@ -122,4 +123,4 @@ button[type='submit']:hover {
   right: 0;
   bottom: 0;
   left: 0;
-}
+};
