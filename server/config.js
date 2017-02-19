@@ -19,9 +19,9 @@ module.exports = function (app, express) {
     console.log('req', req.body);
     return request(yelp({location: req.body.readableName}), function(error, response, body) {
       if (!error && response.statusCode == 200) {
+        console.log(body)
         res.send(body).status(200) 
       } else {
-        console.log(body)
         console.log('failed')
         res.sendStatus(400)
       };

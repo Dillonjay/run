@@ -1,7 +1,5 @@
 angular.module('search.data', [])
 
-
-
 .controller('InputDropdownController', [
       '$scope',
       '$q',
@@ -9,8 +7,7 @@ angular.module('search.data', [])
       function($scope, $q, Search) {
         var self = this;
       
-        self.countryObject = null;
-
+        self.city = null;
         // Pass strings to the dropdown for simple usage
         self.defaultDropdownStrings = [
           'Austin,TX',
@@ -21,36 +18,38 @@ angular.module('search.data', [])
         // Must have property readableName to be desplayed properly.
         self.defaultDropdownObjects = [
 	        {
-	          readableName: 'Austin,TX'
+	          	readableName: 'Austin, TX'
 	        }, 
 	        {
-	          readableName: 'Dallas,TX'	       
+	          	readableName: 'Dallas, TX'	       
 	        }, 
 	        {
-	          readableName: 'Missoula,MT'	  
+	          	readableName: 'Missoula, MT'	  
 	        }, 
 	        {
-	          readableName: 'Portland,OR'
+	          	readableName: 'Portland, OR'
+	        },
+	        {
+	        	readableName: 'Oklahoma City, OK'
 	        }
 	    ];
 
 
-        self.filterStringList = function(userInput) {
-          var filter = $q.defer();
-          var normalisedInput = userInput.toLowerCase();
+        self.filterCities = function(userInput) {
+        	var filter = $q.defer();
+        	var input = userInput.toLowerCase();
 
-          var filteredArray = self.defaultDropdownStrings.filter(function(city) {
-            return city.toLowerCase().indexOf(normalisedInput) === 0;
-          });
-
+          	var filteredArray = self.defaultDropdownObjects.filter(function(city) {
+            var match = city.readableName.toLowerCase().indexOf(input) === 0;
+            return match;
+         	});
           filter.resolve(filteredArray);
           return filter.promise;
         };
 
-
         self.submitCity = function() {
-          if ($scope.demoFormObjects.$valid) {
-             Search.search(self.countryObject)
+          if ($scope.formObjects.$valid) {
+             Search.search(self.city)
              .then(function(data) {
              	console.log('success', data)
              })
