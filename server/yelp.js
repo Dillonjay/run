@@ -3,15 +3,11 @@ var oauthSignature = require('oauth-signature');
 var n = require('nonce')();  
 var qs = require('querystring');  
 
-exports.yelp = function(location) {
+exports.yelp = function(paramaters) {
   // The type of request will be a GET
   var httpMethod = 'GET';
   // The url used 
   var url = 'http://api.yelp.com/v2/search';
-  // Set search term to coffee.
-  var defaultParameters = {
- 	  term: 'Coffee'
-  };
   // Required oauth paramaters. 
   var requiredParameters = {
     oauth_consumer_key : process.env.oath_consumer_key,
@@ -22,7 +18,7 @@ exports.yelp = function(location) {
     oauth_version : '1.0'
   };
   // We combine all the parameters in order of importance 
-  var parameters = Object.assign(defaultParameters, location , requiredParameters);
+  var parameters = Object.assign(paramaters , requiredParameters);
   // Set our secrets here
   var consumerSecret = process.env.consumerSecret;
   var tokenSecret = process.env.tokenSecret;

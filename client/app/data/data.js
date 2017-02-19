@@ -12,9 +12,9 @@ angular.module('search.data', [])
                 height: 600,
     			width:  1300,
     			margin: {"left":220},
+    			groupSpacing: 0.3,
                 x: function(d){return d.label;},
                 y: function(d){return d.value;},
-                //yErr: function(d){ return [-Math.abs(d.value * Math.random() * 0.3), Math.abs(d.value * Math.random() * 0.3)] },
                 showControls: true,
                 showValues: true,
                 duration: 500,
@@ -26,7 +26,16 @@ angular.module('search.data', [])
                     tickFormat: function(d){
                         return d3.format(',.2f')(d);
                     }
-                }
+                },
+        		title: {
+        			enable: true,
+        			text: 'helloooo'
+        		},
+                callback: function(chart) {
+            		chart.multibar.dispatch.on('elementClick', function(e){
+                		console.log('element', e, 'scope.city', self.city );                             
+            		});
+        		}
             }
         };
         self.city = null;
@@ -73,6 +82,7 @@ angular.module('search.data', [])
           if ($scope.formObjects.$valid) {
              Search.search(self.city)
              .then(function(data) {
+             	console.log(data)
              	var reviews = data.data.businesses.map(function(shop){
              		return { 
              			label: shop.name,
@@ -82,7 +92,7 @@ angular.module('search.data', [])
              	var ratings = data.data.businesses.map(function(shop){
              		return { 
              			label: shop.name,
-             			value: shop.rating,
+             			value: shop.rating
              		}
              	})
              	$scope.data = [

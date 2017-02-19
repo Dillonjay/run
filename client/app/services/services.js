@@ -14,7 +14,20 @@ angular.module('search.services', [])
     });
   };
 
+  var getShopData = function(info) {
+    return $http({
+      method: 'POST',
+      url: '/getShop',
+      data: info
+    })
+    .then(function(resp) {
+      return resp
+    })
+  }
+
   return {
     search: search,
+    getShopData : getShopData
   };
+
 })

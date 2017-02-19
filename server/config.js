@@ -17,7 +17,20 @@ module.exports = function (app, express) {
 
   app.post('/search', function(req,res) {
     console.log('req', req.body);
-    return request(yelp({location: req.body.readableName}), function(error, response, body) {
+    return request(yelp({term: 'coffee', location: req.body.readableName}), function(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        console.log(body)
+        res.send(body).status(200) 
+      } else {
+        console.log('failed')
+        res.sendStatus(400)
+      };
+    });
+  });
+
+   app.post('/getShop', function(req,res) {
+    console.log('req', req.body);
+    return request(yelp({term: req.body.notsure,location: req.body.readableName,limit: 1 }), function(error, response, body) {
       if (!error && response.statusCode == 200) {
         console.log(body)
         res.send(body).status(200) 
